@@ -1,0 +1,285 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\Usuario\Desktop\COVID 19\Uso de servicios\ANID\GES\Original research\Tablas STATA\Gender disparities in access to care for time-sensitive conditions during COVID-19 pandemic in Chile.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res} 9 Sep 2020, 14:36:23
+
+{com}. use "C:\Users\Usuario\Desktop\COVID 19\Uso de servicios\ANID\GES\Original research\Tablas STATA\All cardiovascular.dta", clear
+
+. nbreg casos grupo_exp periodo i.did i.sexo i.edad i.semana i.año, exp(poblacion) vce(robust) irr
+{txt}note: 26.semana omitted because of collinearity
+note: 2020.año omitted because of collinearity
+
+Fitting Poisson model:
+{res}
+{txt}Iteration 0:{space 3}log pseudolikelihood = {res:-6078.2857}  
+Iteration 1:{space 3}log pseudolikelihood = {res:-6077.6298}  
+Iteration 2:{space 3}log pseudolikelihood = {res:-6077.6298}  
+{res}
+{txt}Fitting constant-only model:
+{res}
+{txt}Iteration 0:{space 3}log pseudolikelihood = {res:-9175.6097}  
+Iteration 1:{space 3}log pseudolikelihood = {res:-9137.4333}  
+Iteration 2:{space 3}log pseudolikelihood = {res:-8962.3884}  
+Iteration 3:{space 3}log pseudolikelihood = {res:-8961.3333}  
+Iteration 4:{space 3}log pseudolikelihood = {res:-8961.3319}  
+Iteration 5:{space 3}log pseudolikelihood = {res:-8961.3319}  
+{res}
+{txt}Fitting full model:
+{res}
+{txt}Iteration 0:{space 3}log pseudolikelihood = {res:-8288.2084}  (not concave)
+Iteration 1:{space 3}log pseudolikelihood = {res: -7447.627}  (not concave)
+Iteration 2:{space 3}log pseudolikelihood = {res: -6540.239}  
+Iteration 3:{space 3}log pseudolikelihood = {res:-6300.5319}  
+Iteration 4:{space 3}log pseudolikelihood = {res:-6037.1769}  (not concave)
+Iteration 5:{space 3}log pseudolikelihood = {res: -6007.422}  
+Iteration 6:{space 3}log pseudolikelihood = {res:-5995.6301}  
+Iteration 7:{space 3}log pseudolikelihood = {res:-5995.5159}  
+Iteration 8:{space 3}log pseudolikelihood = {res:-5995.5158}  
+{res}
+{txt}Negative binomial regression{col 49}Number of obs{col 67}= {res}     1,456
+{txt}{col 49}Wald chi2({res}36{txt}){col 67}= {res}  76382.33
+{txt}{col 1}Dispersion{col 22}= {res}mean{txt}{col 49}Prob > chi2{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-5995.5158{txt}{col 49}Pseudo R2{col 67}= {res}    0.3310
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}       casos{col 14}{c |}        IRR{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}grupo_exp {c |}{col 14}{res}{space 2} 1.048259{col 26}{space 2} .0122421{col 37}{space 1}    4.04{col 46}{space 3}0.000{col 54}{space 4} 1.024537{col 67}{space 3}  1.07253
+{txt}{space 5}periodo {c |}{col 14}{res}{space 2} 1.071673{col 26}{space 2} .0289982{col 37}{space 1}    2.56{col 46}{space 3}0.011{col 54}{space 4} 1.016318{col 67}{space 3} 1.130042
+{txt}{space 7}1.did {c |}{col 14}{res}{space 2} .6081117{col 26}{space 2} .0090924{col 37}{space 1}  -33.27{col 46}{space 3}0.000{col 54}{space 4} .5905495{col 67}{space 3} .6261962
+{txt}{space 6}1.sexo {c |}{col 14}{res}{space 2} .7945246{col 26}{space 2} .0043821{col 37}{space 1}  -41.70{col 46}{space 3}0.000{col 54}{space 4}  .785982{col 67}{space 3}   .80316
+{txt}{space 12} {c |}
+{space 8}edad {c |}
+{space 10}2  {c |}{col 14}{res}{space 2} 1.403444{col 26}{space 2} .0189158{col 37}{space 1}   25.15{col 46}{space 3}0.000{col 54}{space 4} 1.366855{col 67}{space 3} 1.441012
+{txt}{space 10}3  {c |}{col 14}{res}{space 2} 2.086251{col 26}{space 2} .0275691{col 37}{space 1}   55.65{col 46}{space 3}0.000{col 54}{space 4}  2.03291{col 67}{space 3} 2.140991
+{txt}{space 10}4  {c |}{col 14}{res}{space 2} 3.070628{col 26}{space 2}  .036673{col 37}{space 1}   93.94{col 46}{space 3}0.000{col 54}{space 4} 2.999585{col 67}{space 3} 3.143353
+{txt}{space 10}5  {c |}{col 14}{res}{space 2} 4.732904{col 26}{space 2} .0583801{col 37}{space 1}  126.03{col 46}{space 3}0.000{col 54}{space 4} 4.619854{col 67}{space 3} 4.848722
+{txt}{space 10}6  {c |}{col 14}{res}{space 2} 7.288584{col 26}{space 2} .0874192{col 37}{space 1}  165.61{col 46}{space 3}0.000{col 54}{space 4} 7.119244{col 67}{space 3} 7.461953
+{txt}{space 10}7  {c |}{col 14}{res}{space 2} 10.18194{col 26}{space 2} .1281266{col 37}{space 1}  184.41{col 46}{space 3}0.000{col 54}{space 4} 9.933885{col 67}{space 3} 10.43618
+{txt}{space 12} {c |}
+{space 6}semana {c |}
+{space 10}2  {c |}{col 14}{res}{space 2} 1.107469{col 26}{space 2} .0310182{col 37}{space 1}    3.64{col 46}{space 3}0.000{col 54}{space 4} 1.048313{col 67}{space 3} 1.169963
+{txt}{space 10}3  {c |}{col 14}{res}{space 2} 1.112933{col 26}{space 2} .0301676{col 37}{space 1}    3.95{col 46}{space 3}0.000{col 54}{space 4} 1.055348{col 67}{space 3} 1.173659
+{txt}{space 10}4  {c |}{col 14}{res}{space 2} 1.074684{col 26}{space 2} .0297325{col 37}{space 1}    2.60{col 46}{space 3}0.009{col 54}{space 4} 1.017961{col 67}{space 3} 1.134567
+{txt}{space 10}5  {c |}{col 14}{res}{space 2} 1.057265{col 26}{space 2} .0289571{col 37}{space 1}    2.03{col 46}{space 3}0.042{col 54}{space 4} 1.002007{col 67}{space 3} 1.115571
+{txt}{space 10}6  {c |}{col 14}{res}{space 2} 1.038922{col 26}{space 2} .0286946{col 37}{space 1}    1.38{col 46}{space 3}0.167{col 54}{space 4} .9841773{col 67}{space 3} 1.096713
+{txt}{space 10}7  {c |}{col 14}{res}{space 2} 1.054211{col 26}{space 2}  .029545{col 37}{space 1}    1.88{col 46}{space 3}0.060{col 54}{space 4} .9978658{col 67}{space 3} 1.113738
+{txt}{space 10}8  {c |}{col 14}{res}{space 2} 1.062556{col 26}{space 2} .0291296{col 37}{space 1}    2.21{col 46}{space 3}0.027{col 54}{space 4}  1.00697{col 67}{space 3} 1.121211
+{txt}{space 10}9  {c |}{col 14}{res}{space 2} 1.048373{col 26}{space 2} .0288568{col 37}{space 1}    1.72{col 46}{space 3}0.086{col 54}{space 4} .9933129{col 67}{space 3} 1.106484
+{txt}{space 9}10  {c |}{col 14}{res}{space 2} 1.050882{col 26}{space 2}  .028951{col 37}{space 1}    1.80{col 46}{space 3}0.072{col 54}{space 4} .9956438{col 67}{space 3} 1.109185
+{txt}{space 9}11  {c |}{col 14}{res}{space 2} 1.030555{col 26}{space 2} .0274651{col 37}{space 1}    1.13{col 46}{space 3}0.259{col 54}{space 4} .9781063{col 67}{space 3} 1.085817
+{txt}{space 9}12  {c |}{col 14}{res}{space 2} .9600897{col 26}{space 2} .0195968{col 37}{space 1}   -2.00{col 46}{space 3}0.046{col 54}{space 4} .9224389{col 67}{space 3} .9992773
+{txt}{space 9}13  {c |}{col 14}{res}{space 2}  .954411{col 26}{space 2}  .018829{col 37}{space 1}   -2.37{col 46}{space 3}0.018{col 54}{space 4} .9182112{col 67}{space 3} .9920379
+{txt}{space 9}14  {c |}{col 14}{res}{space 2}  1.01042{col 26}{space 2} .0187839{col 37}{space 1}    0.56{col 46}{space 3}0.577{col 54}{space 4} .9742669{col 67}{space 3} 1.047915
+{txt}{space 9}15  {c |}{col 14}{res}{space 2} 1.017932{col 26}{space 2} .0198491{col 37}{space 1}    0.91{col 46}{space 3}0.362{col 54}{space 4} .9797629{col 67}{space 3} 1.057589
+{txt}{space 9}16  {c |}{col 14}{res}{space 2} 1.045269{col 26}{space 2} .0193259{col 37}{space 1}    2.39{col 46}{space 3}0.017{col 54}{space 4} 1.008069{col 67}{space 3} 1.083842
+{txt}{space 9}17  {c |}{col 14}{res}{space 2}  1.00882{col 26}{space 2} .0180858{col 37}{space 1}    0.49{col 46}{space 3}0.624{col 54}{space 4} .9739883{col 67}{space 3} 1.044898
+{txt}{space 9}18  {c |}{col 14}{res}{space 2} 1.037435{col 26}{space 2}  .018955{col 37}{space 1}    2.01{col 46}{space 3}0.044{col 54}{space 4} 1.000941{col 67}{space 3}  1.07526
+{txt}{space 9}19  {c |}{col 14}{res}{space 2} 1.054416{col 26}{space 2} .0194174{col 37}{space 1}    2.88{col 46}{space 3}0.004{col 54}{space 4} 1.017037{col 67}{space 3} 1.093168
+{txt}{space 9}20  {c |}{col 14}{res}{space 2} 1.022995{col 26}{space 2} .0192486{col 37}{space 1}    1.21{col 46}{space 3}0.227{col 54}{space 4} .9859551{col 67}{space 3} 1.061425
+{txt}{space 9}21  {c |}{col 14}{res}{space 2} 1.000169{col 26}{space 2} .0170961{col 37}{space 1}    0.01{col 46}{space 3}0.992{col 54}{space 4} .9672168{col 67}{space 3} 1.034245
+{txt}{space 9}22  {c |}{col 14}{res}{space 2} 1.002764{col 26}{space 2} .0192879{col 37}{space 1}    0.14{col 46}{space 3}0.886{col 54}{space 4} .9656642{col 67}{space 3} 1.041289
+{txt}{space 9}23  {c |}{col 14}{res}{space 2} .9777157{col 26}{space 2} .0195007{col 37}{space 1}   -1.13{col 46}{space 3}0.259{col 54}{space 4} .9402325{col 67}{space 3} 1.016693
+{txt}{space 9}24  {c |}{col 14}{res}{space 2} .9868879{col 26}{space 2} .0205946{col 37}{space 1}   -0.63{col 46}{space 3}0.527{col 54}{space 4} .9473376{col 67}{space 3} 1.028089
+{txt}{space 9}25  {c |}{col 14}{res}{space 2} 1.053615{col 26}{space 2} .0197183{col 37}{space 1}    2.79{col 46}{space 3}0.005{col 54}{space 4} 1.015668{col 67}{space 3}  1.09298
+{txt}{space 9}26  {c |}{col 14}{res}{space 2}        1{col 26}{txt}  (omitted)
+{space 12} {c |}
+{space 9}año {c |}
+{space 7}2018  {c |}{col 14}{res}{space 2} 1.022511{col 26}{space 2} .0078601{col 37}{space 1}    2.90{col 46}{space 3}0.004{col 54}{space 4} 1.007221{col 67}{space 3} 1.038034
+{txt}{space 7}2019  {c |}{col 14}{res}{space 2} 1.056649{col 26}{space 2} .0075055{col 37}{space 1}    7.76{col 46}{space 3}0.000{col 54}{space 4} 1.042041{col 67}{space 3} 1.071463
+{txt}{space 7}2020  {c |}{col 14}{res}{space 2}        1{col 26}{txt}  (omitted)
+{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0000403{col 26}{space 2} 1.07e-06{col 37}{space 1} -381.21{col 46}{space 3}0.000{col 54}{space 4} .0000383{col 67}{space 3} .0000425
+{col 1}{txt}ln(poblac~n){col 14}{c |}{res}{space 2}        1{col 26}{txt}  (exposure)
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}/lnalpha {c |}{col 14}{res}{space 2}-5.550963{col 26}{space 2} .1202538{col 54}{space 4}-5.786656{col 67}{space 3} -5.31527
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+       alpha {c |}{col 14}{res}{space 2} .0038837{col 26}{space 2}  .000467{col 54}{space 4} .0030682{col 67}{space 3}  .004916
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{p 0 6 2}Note: {help eform_option:Estimates are transformed} only in the first equation.{p_end}
+{p 0 6 2}Note: {res:_cons} estimates baseline incidence rate{txt}.{p_end}
+
+{com}. estat ic
+
+{txt}Akaike's information criterion and Bayesian information criterion
+
+{hline 13}{c TT}{hline 63}
+       Model {c |}          N   ll(null)  ll(model)      df        AIC        BIC
+{hline 13}{c +}{hline 63}
+{ralign 12:.}{col 14}{c |}{res}{col 16}     1,456{col 28}-8961.332{col 39}-5995.516{col 50}    38{col 58} 12067.03{col 69}  12267.8
+{txt}{hline 13}{c BT}{hline 63}
+{p 0 6 0 77}Note: BIC uses N = number of observations. See {helpb bic_note:{bind:[R] BIC note}}.{p_end}
+
+{com}. nbreg casos grupo_exp periodo i.did i.did##i.sexo i.sexo i.edad i.semana i.año, exp(poblacion) vce(robust) irr
+{txt}note: 26.semana omitted because of collinearity
+note: 2020.año omitted because of collinearity
+
+Fitting Poisson model:
+{res}
+{txt}Iteration 0:{space 3}log pseudolikelihood = {res:-6043.9467}  
+Iteration 1:{space 3}log pseudolikelihood = {res:-6043.2773}  
+Iteration 2:{space 3}log pseudolikelihood = {res:-6043.2773}  
+{res}
+{txt}Fitting constant-only model:
+{res}
+{txt}Iteration 0:{space 3}log pseudolikelihood = {res:-9175.6097}  
+Iteration 1:{space 3}log pseudolikelihood = {res:-9137.4333}  
+Iteration 2:{space 3}log pseudolikelihood = {res:-8962.3884}  
+Iteration 3:{space 3}log pseudolikelihood = {res:-8961.3333}  
+Iteration 4:{space 3}log pseudolikelihood = {res:-8961.3319}  
+Iteration 5:{space 3}log pseudolikelihood = {res:-8961.3319}  
+{res}
+{txt}Fitting full model:
+{res}
+{txt}Iteration 0:{space 3}log pseudolikelihood = {res:-8287.9226}  (not concave)
+Iteration 1:{space 3}log pseudolikelihood = {res:-7444.4516}  (not concave)
+Iteration 2:{space 3}log pseudolikelihood = {res:-6532.8621}  
+Iteration 3:{space 3}log pseudolikelihood = {res:-6281.5427}  
+Iteration 4:{space 3}log pseudolikelihood = {res:-6009.4079}  (not concave)
+Iteration 5:{space 3}log pseudolikelihood = {res:-5985.2343}  
+Iteration 6:{space 3}log pseudolikelihood = {res:-5973.1937}  
+Iteration 7:{space 3}log pseudolikelihood = {res:-5973.0311}  
+Iteration 8:{space 3}log pseudolikelihood = {res: -5973.031}  
+{res}
+{txt}Negative binomial regression{col 49}Number of obs{col 67}= {res}     1,456
+{txt}{col 49}Wald chi2({res}37{txt}){col 67}= {res}  76735.56
+{txt}{col 1}Dispersion{col 22}= {res}mean{txt}{col 49}Prob > chi2{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res} -5973.031{txt}{col 49}Pseudo R2{col 67}= {res}    0.3335
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}       casos{col 14}{c |}        IRR{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}grupo_exp {c |}{col 14}{res}{space 2} 1.047968{col 26}{space 2} .0122647{col 37}{space 1}    4.00{col 46}{space 3}0.000{col 54}{space 4} 1.024203{col 67}{space 3} 1.072284
+{txt}{space 5}periodo {c |}{col 14}{res}{space 2} 1.072124{col 26}{space 2} .0290919{col 37}{space 1}    2.57{col 46}{space 3}0.010{col 54}{space 4} 1.016595{col 67}{space 3} 1.130687
+{txt}{space 7}1.did {c |}{col 14}{res}{space 2} .6437597{col 26}{space 2} .0103731{col 37}{space 1}  -27.33{col 46}{space 3}0.000{col 54}{space 4} .6237465{col 67}{space 3} .6644152
+{txt}{space 6}1.sexo {c |}{col 14}{res}{space 2} .8049582{col 26}{space 2} .0045598{col 37}{space 1}  -38.30{col 46}{space 3}0.000{col 54}{space 4} .7960706{col 67}{space 3} .8139451
+{txt}{space 12} {c |}
+{space 4}did#sexo {c |}
+{space 8}1 1  {c |}{col 14}{res}{space 2} .8904273{col 26}{space 2} .0167424{col 37}{space 1}   -6.17{col 46}{space 3}0.000{col 54}{space 4} .8582101{col 67}{space 3} .9238539
+{txt}{space 12} {c |}
+{space 8}edad {c |}
+{space 10}2  {c |}{col 14}{res}{space 2} 1.403233{col 26}{space 2}  .018986{col 37}{space 1}   25.04{col 46}{space 3}0.000{col 54}{space 4}  1.36651{col 67}{space 3} 1.440943
+{txt}{space 10}3  {c |}{col 14}{res}{space 2} 2.085728{col 26}{space 2} .0276033{col 37}{space 1}   55.55{col 46}{space 3}0.000{col 54}{space 4} 2.032322{col 67}{space 3} 2.140538
+{txt}{space 10}4  {c |}{col 14}{res}{space 2} 3.069853{col 26}{space 2} .0367344{col 37}{space 1}   93.73{col 46}{space 3}0.000{col 54}{space 4} 2.998692{col 67}{space 3} 3.142702
+{txt}{space 10}5  {c |}{col 14}{res}{space 2} 4.731792{col 26}{space 2}  .058463{col 37}{space 1}  125.80{col 46}{space 3}0.000{col 54}{space 4} 4.618583{col 67}{space 3} 4.847776
+{txt}{space 10}6  {c |}{col 14}{res}{space 2} 7.287991{col 26}{space 2} .0881724{col 37}{space 1}  164.17{col 46}{space 3}0.000{col 54}{space 4} 7.117209{col 67}{space 3} 7.462871
+{txt}{space 10}7  {c |}{col 14}{res}{space 2} 10.18221{col 26}{space 2} .1280137{col 37}{space 1}  184.58{col 46}{space 3}0.000{col 54}{space 4} 9.934371{col 67}{space 3} 10.43623
+{txt}{space 12} {c |}
+{space 6}semana {c |}
+{space 10}2  {c |}{col 14}{res}{space 2} 1.107792{col 26}{space 2} .0313617{col 37}{space 1}    3.62{col 46}{space 3}0.000{col 54}{space 4} 1.047998{col 67}{space 3} 1.170997
+{txt}{space 10}3  {c |}{col 14}{res}{space 2}  1.11302{col 26}{space 2} .0304976{col 37}{space 1}    3.91{col 46}{space 3}0.000{col 54}{space 4} 1.054822{col 67}{space 3} 1.174428
+{txt}{space 10}4  {c |}{col 14}{res}{space 2} 1.075035{col 26}{space 2} .0300737{col 37}{space 1}    2.59{col 46}{space 3}0.010{col 54}{space 4} 1.017679{col 67}{space 3} 1.135625
+{txt}{space 10}5  {c |}{col 14}{res}{space 2} 1.057563{col 26}{space 2}  .029193{col 37}{space 1}    2.03{col 46}{space 3}0.043{col 54}{space 4} 1.001866{col 67}{space 3} 1.116356
+{txt}{space 10}6  {c |}{col 14}{res}{space 2} 1.039212{col 26}{space 2} .0290509{col 37}{space 1}    1.38{col 46}{space 3}0.169{col 54}{space 4} .9838045{col 67}{space 3} 1.097739
+{txt}{space 10}7  {c |}{col 14}{res}{space 2} 1.054572{col 26}{space 2} .0298431{col 37}{space 1}    1.88{col 46}{space 3}0.060{col 54}{space 4} .9976733{col 67}{space 3} 1.114716
+{txt}{space 10}8  {c |}{col 14}{res}{space 2} 1.062797{col 26}{space 2} .0295414{col 37}{space 1}    2.19{col 46}{space 3}0.028{col 54}{space 4} 1.006446{col 67}{space 3} 1.122303
+{txt}{space 10}9  {c |}{col 14}{res}{space 2} 1.048708{col 26}{space 2} .0291948{col 37}{space 1}    1.71{col 46}{space 3}0.088{col 54}{space 4} .9930201{col 67}{space 3} 1.107518
+{txt}{space 9}10  {c |}{col 14}{res}{space 2} 1.051043{col 26}{space 2} .0292038{col 37}{space 1}    1.79{col 46}{space 3}0.073{col 54}{space 4} .9953349{col 67}{space 3} 1.109868
+{txt}{space 9}11  {c |}{col 14}{res}{space 2} 1.030693{col 26}{space 2} .0277897{col 37}{space 1}    1.12{col 46}{space 3}0.262{col 54}{space 4} .9776401{col 67}{space 3} 1.086624
+{txt}{space 9}12  {c |}{col 14}{res}{space 2} .9599099{col 26}{space 2} .0186203{col 37}{space 1}   -2.11{col 46}{space 3}0.035{col 54}{space 4} .9240999{col 67}{space 3} .9971076
+{txt}{space 9}13  {c |}{col 14}{res}{space 2}  .954228{col 26}{space 2} .0179564{col 37}{space 1}   -2.49{col 46}{space 3}0.013{col 54}{space 4} .9196752{col 67}{space 3}  .990079
+{txt}{space 9}14  {c |}{col 14}{res}{space 2} 1.010164{col 26}{space 2}  .017911{col 37}{space 1}    0.57{col 46}{space 3}0.568{col 54}{space 4} .9756618{col 67}{space 3} 1.045886
+{txt}{space 9}15  {c |}{col 14}{res}{space 2} 1.017575{col 26}{space 2} .0186854{col 37}{space 1}    0.95{col 46}{space 3}0.343{col 54}{space 4} .9816037{col 67}{space 3} 1.054865
+{txt}{space 9}16  {c |}{col 14}{res}{space 2} 1.044661{col 26}{space 2} .0182098{col 37}{space 1}    2.51{col 46}{space 3}0.012{col 54}{space 4} 1.009573{col 67}{space 3} 1.080968
+{txt}{space 9}17  {c |}{col 14}{res}{space 2} 1.008612{col 26}{space 2} .0176438{col 37}{space 1}    0.49{col 46}{space 3}0.624{col 54}{space 4} .9746172{col 67}{space 3} 1.043793
+{txt}{space 9}18  {c |}{col 14}{res}{space 2} 1.037236{col 26}{space 2} .0185504{col 37}{space 1}    2.04{col 46}{space 3}0.041{col 54}{space 4} 1.001507{col 67}{space 3} 1.074238
+{txt}{space 9}19  {c |}{col 14}{res}{space 2} 1.054325{col 26}{space 2} .0186677{col 37}{space 1}    2.99{col 46}{space 3}0.003{col 54}{space 4} 1.018365{col 67}{space 3} 1.091555
+{txt}{space 9}20  {c |}{col 14}{res}{space 2} 1.022894{col 26}{space 2} .0186375{col 37}{space 1}    1.24{col 46}{space 3}0.214{col 54}{space 4} .9870094{col 67}{space 3} 1.060082
+{txt}{space 9}21  {c |}{col 14}{res}{space 2} 1.000248{col 26}{space 2} .0167123{col 37}{space 1}    0.01{col 46}{space 3}0.988{col 54}{space 4} .9680231{col 67}{space 3} 1.033546
+{txt}{space 9}22  {c |}{col 14}{res}{space 2} 1.003031{col 26}{space 2} .0189112{col 37}{space 1}    0.16{col 46}{space 3}0.872{col 54}{space 4} .9666419{col 67}{space 3} 1.040789
+{txt}{space 9}23  {c |}{col 14}{res}{space 2} .9777714{col 26}{space 2} .0187448{col 37}{space 1}   -1.17{col 46}{space 3}0.241{col 54}{space 4} .9417139{col 67}{space 3}  1.01521
+{txt}{space 9}24  {c |}{col 14}{res}{space 2} .9870135{col 26}{space 2}   .02015{col 37}{space 1}   -0.64{col 46}{space 3}0.522{col 54}{space 4}    .9483{col 67}{space 3} 1.027307
+{txt}{space 9}25  {c |}{col 14}{res}{space 2} 1.053535{col 26}{space 2} .0188559{col 37}{space 1}    2.91{col 46}{space 3}0.004{col 54}{space 4} 1.017219{col 67}{space 3} 1.091148
+{txt}{space 9}26  {c |}{col 14}{res}{space 2}        1{col 26}{txt}  (omitted)
+{space 12} {c |}
+{space 9}año {c |}
+{space 7}2018  {c |}{col 14}{res}{space 2} 1.022513{col 26}{space 2} .0078395{col 37}{space 1}    2.90{col 46}{space 3}0.004{col 54}{space 4} 1.007262{col 67}{space 3} 1.037994
+{txt}{space 7}2019  {c |}{col 14}{res}{space 2} 1.056433{col 26}{space 2} .0074411{col 37}{space 1}    7.79{col 46}{space 3}0.000{col 54}{space 4} 1.041949{col 67}{space 3} 1.071118
+{txt}{space 7}2020  {c |}{col 14}{res}{space 2}        1{col 26}{txt}  (omitted)
+{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0000401{col 26}{space 2} 1.08e-06{col 37}{space 1} -376.17{col 46}{space 3}0.000{col 54}{space 4}  .000038{col 67}{space 3} .0000422
+{col 1}{txt}ln(poblac~n){col 14}{c |}{res}{space 2}        1{col 26}{txt}  (exposure)
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}/lnalpha {c |}{col 14}{res}{space 2}-5.646508{col 26}{space 2}  .129691{col 54}{space 4}-5.900698{col 67}{space 3}-5.392319
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+       alpha {c |}{col 14}{res}{space 2} .0035298{col 26}{space 2} .0004578{col 54}{space 4} .0027375{col 67}{space 3} .0045514
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{p 0 6 2}Note: {help eform_option:Estimates are transformed} only in the first equation.{p_end}
+{p 0 6 2}Note: {res:_cons} estimates baseline incidence rate{txt}.{p_end}
+
+{com}. estat ic
+
+{txt}Akaike's information criterion and Bayesian information criterion
+
+{hline 13}{c TT}{hline 63}
+       Model {c |}          N   ll(null)  ll(model)      df        AIC        BIC
+{hline 13}{c +}{hline 63}
+{ralign 12:.}{col 14}{c |}{res}{col 16}     1,456{col 28}-8961.332{col 39}-5973.031{col 50}    39{col 58} 12024.06{col 69} 12230.12
+{txt}{hline 13}{c BT}{hline 63}
+{p 0 6 0 77}Note: BIC uses N = number of observations. See {helpb bic_note:{bind:[R] BIC note}}.{p_end}
+
+{com}. margins r.did
+{res}
+{txt}Contrasts of predictive margins{col 49}Number of obs{col 67}= {res}     1,456
+{txt}{col 1}Model VCE{col 14}: {res}Robust
+
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:Expression}:{space 1}{res:Predicted number of events, predict()}{p_end}
+{p2colreset}{...}
+
+{res}{col 1}{text}{hline 13}{c TT}{hline 11}{hline 12}{hline 11}
+{col 14}{text}{c |}         df{col 26}        chi2{col 38}     P>chi2
+{res}{col 1}{text}{hline 13}{c +}{hline 11}{hline 12}{hline 11}
+{space 9}did {res}{col 14}{text}{c |}{result}{space 2}        1{col 26}{space 3}  1654.36{col 38}{space 2}   0.0000
+{col 1}{text}{hline 13}{c BT}{hline 11}{hline 12}{hline 11}
+{res}
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}{col 26} Delta-method
+{col 14}{c |}   Contrast{col 26}   Std. Err.{col 38}     [95% Con{col 51}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 9}did {c |}
+{space 3}(1 vs 0)  {c |}{col 14}{res}{space 2}-61.40983{col 26}{space 2} 1.509812{col 37}{space 5}  -64.369{col 51}{space 3}-58.45065
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+{res}
+{com}. margins r.did, over(sexo)
+{res}
+{txt}Contrasts of predictive margins{col 49}Number of obs{col 67}= {res}     1,456
+{txt}{col 1}Model VCE{col 14}: {res}Robust
+
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:Expression}:{space 1}{res:Predicted number of events, predict()}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:over}:{space 1}{res:sexo}{p_end}
+{p2colreset}{...}
+
+{res}{col 1}{text}{hline 13}{c TT}{hline 11}{hline 12}{hline 11}
+{col 14}{text}{c |}         df{col 26}        chi2{col 38}     P>chi2
+{res}{col 1}{text}{hline 13}{c +}{hline 11}{hline 12}{hline 11}
+{space 4}did@sexo {c |}
+{space 1}(1 vs 0) 0  {res}{col 14}{text}{c |}{result}{space 2}        1{col 26}{space 3}  1002.82{col 38}{space 2}   0.0000
+{txt}{space 1}(1 vs 0) 1  {res}{col 14}{text}{c |}{result}{space 2}        1{col 26}{space 3}  1366.09{col 38}{space 2}   0.0000
+{col 1}{text}      Joint {col 14}{c |}{result}{space 2}        2{col 26}{space 3}  1673.32{col 38}{space 2}   0.0000
+{col 1}{text}{hline 13}{c BT}{hline 11}{hline 12}{hline 11}
+{res}
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}{col 26} Delta-method
+{col 14}{c |}   Contrast{col 26}   Std. Err.{col 38}     [95% Con{col 51}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 4}did@sexo {c |}
+{space 1}(1 vs 0) 0  {c |}{col 14}{res}{space 2}-55.26261{col 26}{space 2} 1.745102{col 37}{space 5}-58.68295{col 51}{space 3}-51.84227
+{txt}{space 1}(1 vs 0) 1  {c |}{col 14}{res}{space 2}-67.55704{col 26}{space 2} 1.827813{col 37}{space 5}-71.13949{col 51}{space 3}-63.97459
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+{res}
+{com}. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\Usuario\Desktop\COVID 19\Uso de servicios\ANID\GES\Original research\Tablas STATA\Gender disparities in access to care for time-sensitive conditions during COVID-19 pandemic in Chile.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res} 9 Sep 2020, 14:41:01
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}
