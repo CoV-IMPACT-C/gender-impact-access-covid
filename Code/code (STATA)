@@ -1,0 +1,91 @@
+#Crude models
+preserve
+collapse (sum) _freq poblacion, by(rango_etario ano semana)
+bysort rango_etario: gene wseqnum=_n-1
+bysort rango_etario: gene wseqnum2=_n+12 if ano>=2018
+bysort rango_etario: gene wseqnum3=_n+25 if ano>=2019
+bysort rango_etario: gene wseqnum4=_n+38 if ano>=2020
+replace wseqnum=wseqnum2 if ano==2018
+replace wseqnum=wseqnum3 if ano==2019
+replace wseqnum=wseqnum4 if ano==2020
+drop wseqnum2 wseqnum3 wseqnum4
+rename wseqnum t2
+gen level=0
+replace level=1 if semana>=12&ano==2020
+gen slope=0
+replace slope=1 if semana==13&ano==2020
+replace slope=2 if semana==14&ano==2020
+replace slope=3 if semana==15&ano==2020
+replace slope=4 if semana==16&ano==2020
+replace slope=5 if semana==17&ano==2020
+replace slope=6 if semana==18&ano==2020
+replace slope=7 if semana==19&ano==2020
+replace slope=8 if semana==20&ano==2020
+replace slope=9 if semana==21&ano==2020
+replace slope=10 if semana==22&ano==2020
+replace slope=11 if semana==23&ano==2020
+replace slope=12 if semana==24&ano==2020
+replace slope=13 if semana==25&ano==2020
+replace slope=14 if semana==26&ano==2020
+replace slope=15 if semana==27&ano==2020
+replace slope=16 if semana==28&ano==2020
+replace slope=17 if semana==29&ano==2020
+replace slope=18 if semana==30&ano==2020
+replace slope=19 if semana==31&ano==2020
+replace slope=20 if semana==32&ano==2020
+replace slope=21 if semana==33&ano==2020
+replace slope=22 if semana==34&ano==2020
+replace slope=23 if semana==35&ano==2020
+replace slope=24 if semana==36&ano==2020
+replace slope=25 if semana==37&ano==2020
+replace slope=26 if semana==38&ano==2020
+replace slope=27 if semana==39&ano==2020
+nbreg _freq t i.level slope i.semana i.ano i.rango_etario, exp(poblacion) vce(robust) irr
+margins, dydx(level)
+margins, dydx(slope)
+predictnl nhat=predict(n), se(se_nh) ci(llim_nh ulim_nh)
+restore
+
+# Sex stratified models
+nbreg _freq t2 i.level slope i.rango_etario i.semana i.ano, exp(poblacion) vce(robust) irr, if sexo_==1
+margins, dydx(level)
+margins, dydx(slope)
+predictnl nhat1=predict(n), se(se_nh1) ci(llim_nh1 ulim_nh1)
+nbreg _freq t2 i.level slope i.rango_etario i.semana i.ano, exp(poblacion) vce(robust) irr, if sexo_==2
+margins, dydx(level)
+margins, dydx(slope)
+predictnl nhat2=predict(n), se(se_nh2) ci(llim_nh2 ulim_nh2)
+gen nhat=0
+gen se_nh=0
+gen llim_nh=0
+gen ulim_nh=0
+replace nhat=nhat1 if sexo==1
+replace nhat=nhat2 if sexo==2
+replace se_nh=se_nh1 if sexo==1
+replace se_nh=se_nh2 if sexo==2
+replace llim_nh=llim_nh1 if sexo==1
+replace llim_nh=llim_nh2 if sexo==2
+replace ulim_nh=ulim_nh1 if sexo==1
+replace ulim_nh=ulim_nh2 if sexo==2
+
+# Sex and age stratified models
+nbreg _freq t2 i.level slope i.rango_etario i.semana i.ano, exp(poblacion) vce(robust) irr, if sexo_==1&rango_etario1
+margins, dydx(level)
+margins, dydx(slope)
+predictnl nhat1=predict(n), se(se_nh1) ci(llim_nh1 ulim_nh1)
+nbreg _freq t2 i.level slope i.rango_etario i.semana i.ano, exp(poblacion) vce(robust) irr, if sexo_==2&rango_etario1
+margins, dydx(level)
+margins, dydx(slope)
+predictnl nhat2=predict(n), se(se_nh2) ci(llim_nh2 ulim_nh2)
+gen nhat=0
+gen se_nh=0
+gen llim_nh=0
+gen ulim_nh=0
+replace nhat=nhat1 if sexo==1
+replace nhat=nhat2 if sexo==2
+replace se_nh=se_nh1 if sexo==1
+replace se_nh=se_nh2 if sexo==2
+replace llim_nh=llim_nh1 if sexo==1
+replace llim_nh=llim_nh2 if sexo==2
+replace ulim_nh=ulim_nh1 if sexo==1
+replace ulim_nh=ulim_nh2 if sexo==2
